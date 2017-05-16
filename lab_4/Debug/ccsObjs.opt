@@ -1,0 +1,1 @@
+"./main.obj" "./src/stopwatch.obj" "./src/system.obj" "./src/timerA.obj" "./src/watchdog.obj" "../lnk_msp430f148.cmd" -l"libc.a" 
