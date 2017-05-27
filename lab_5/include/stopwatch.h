@@ -12,12 +12,6 @@ struct Time_struct
 } _time;
 
 
-volatile uint16_t timer_100ms_ticks;
-volatile uint16_t timer_ms_ticks;
-
-
-void update_time(void);
-struct Time_struct *get_time(void);
-
+volatile uint16_t timer_10ms_ticks;
 
 #endif /* STOPWATCH_H */

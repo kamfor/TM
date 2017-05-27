@@ -14,6 +14,7 @@ ORDERED_OBJS += \
 "./src/stopwatch.obj" \
 "./src/system.obj" \
 "./src/timerA.obj" \
+"./src/uart.obj" \
 "./src/watchdog.obj" \
 "../lnk_msp430f1611.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -123,40 +124,40 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-lab_4.out \
+UART_stopwatch.out \
 
 EXE_OUTPUTS__QUOTED += \
-"lab_4.out" \
+"UART_stopwatch.out" \
 
 BIN_OUTPUTS += \
-lab_4.hex \
+UART_stopwatch.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"lab_4.hex" \
+"UART_stopwatch.hex" \
 
 
 # All Target
-all: lab_4.out
+all: UART_stopwatch.out
 
 # Tool invocations
-lab_4.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+UART_stopwatch.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/bin/cl430" -vmsp --use_hw_mpy=16 --advice:power=all -g --define=__MSP430F1611__ --display_error_number --diag_wrap=off --diag_warning=225 --abi=eabi --printf_support=minimal -z -m"lab_4.map" --heap_size=80 --stack_size=80 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="lab_4_linkInfo.xml" --use_hw_mpy=16 --rom_model -o "lab_4.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/bin/cl430" -vmsp --use_hw_mpy=16 --advice:power=all -g --define=__MSP430F1611__ --display_error_number --diag_wrap=off --diag_warning=225 --abi=eabi --printf_support=minimal -z -m"UART_stopwatch.map" --heap_size=80 --stack_size=80 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="UART_stopwatch_linkInfo.xml" --use_hw_mpy=16 --rom_model -o "UART_stopwatch.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-lab_4.hex: $(EXE_OUTPUTS)
+UART_stopwatch.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/bin/hex430" --memwidth=8 --romwidth=8 -o "lab_4.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.3.0.STS/bin/hex430" --memwidth=8 --romwidth=8 -o "UART_stopwatch.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "main.pp" "src\stopwatch.pp" "src\system.pp" "src\timerA.pp" "src\watchdog.pp" 
-	-$(RM) "main.obj" "src\stopwatch.obj" "src\system.obj" "src\timerA.obj" "src\watchdog.obj" 
+	-$(RM) "main.pp" "src\stopwatch.pp" "src\system.pp" "src\timerA.pp" "src\uart.pp" "src\watchdog.pp" 
+	-$(RM) "main.obj" "src\stopwatch.obj" "src\system.obj" "src\timerA.obj" "src\uart.obj" "src\watchdog.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -24,8 +24,11 @@ void _clocks_init(void)
 
 void _io_init(void)
 {
-    P2DIR|=0xFF; //port 2 - wyjscie
-    P3DIR|=0xFF; //port 3 - wyjscie
+    P1DIR = 0x00;
+    P1IES = START_BUTTON | INTERTIME_BUTTON | RESET_BUTTON;
+	P1IE =	START_BUTTON | INTERTIME_BUTTON | RESET_BUTTON;
+	P2DIR |= 0xFF; //port 2 - wyjscie
+    P3DIR |= 0xFF; //port 3 - wyjscie
 }
 
 

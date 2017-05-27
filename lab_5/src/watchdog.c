@@ -1,11 +1,11 @@
-#include "watchdog.h"
+#include "../include/watchdog.h"
 #include <msp430.h>
 
 
-void watchdog_disable(voif)
+void watchdog_disable(void)
 {
   /* Hold the watchdog */
-  WDTCLT = WDTPW + WDTHOLD;
+  WDTCTL = WDTPW + WDTHOLD;
 }
 
 void watchdog_enable(void)
@@ -26,5 +26,5 @@ void watchdog_pet(void)
   * - ACLK
   * - interval = 2.73s
   */
-  WDTCLT = WDTPW + (WDTSSEL | WDTCNTCL);
+  WDTCTL = WDTPW + (WDTSSEL | WDTCNTCL);
 }
