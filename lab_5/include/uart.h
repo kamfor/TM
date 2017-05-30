@@ -10,5 +10,5 @@ uint8_t uart_getchar();
 
 uint8_t uart_putchar();
 
-
+int uart_puts(const char *str);
 #endif /* INCLUDE_UART_H_ */
